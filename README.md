@@ -14,16 +14,15 @@ Any questions or bug please raise a issue.
 
 ### Step 1
 
-Install via NPM [Check In NPM](https://www.npmjs.com/package/tp-react-native-bluetooth-printer)
-
+Install via NPM
 ```bash
-npm install tp-react-native-bluetooth-printer --save
+npm install --save tp-react-native-bluetooth-printer@git+https://git@github.com/harrybui2804/tp-react-native-bluetooth-printer
 ```
 
-Or install via github
+Or install via YARN
 
 ```bash
-npm install https://github.com/tulparyazilim/tp-react-native-bluetooth-printer.git --save
+yarn add tp-react-native-bluetooth-printer@git+https://git@github.com/harrybui2804/tp-react-native-bluetooth-printer
 ```
 
 ### Step2
@@ -193,7 +192,7 @@ The printer for label printing.
   async function the perform label print action.
 
 ```javascript
-BluetoothTscPrinter.printLabel(options).then(
+BluetoothTscPrinter.printLable(options).then(
   () => {
     //success
   },

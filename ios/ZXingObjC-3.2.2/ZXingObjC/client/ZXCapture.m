@@ -197,6 +197,24 @@
 }
 
 - (BOOL)hasFront {
+    AVCaptureDeviceDiscoverySession *captureDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera]
+                                          mediaType:AVMediaTypeVideo
+                                           position:AVCaptureDevicePositionBack];
+    NSArray *devices = captureDeviceDiscoverySession.devices;
+    //NSArray *devices = [captureDeviceDiscoverySession devices];
+  return [devices count] > 1;
+}
+
+- (BOOL)hasBack {
+    AVCaptureDeviceDiscoverySession *captureDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera]
+                                          mediaType:AVMediaTypeVideo
+                                           position:AVCaptureDevicePositionBack];
+    NSArray *devices = captureDeviceDiscoverySession.devices;
+  return [devices count] > 0;
+}
+
+/*
+- (BOOL)hasFront {
   NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
   return [devices count] > 1;
 }
@@ -205,7 +223,7 @@
   NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
   return [devices count] > 0;
 }
-
+*/
 - (BOOL)hasTorch {
   if ([self device]) {
     return [self device].hasTorch;
@@ -461,8 +479,12 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   }
 
   AVCaptureDevice *zxd = nil;
-
-  NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+AVCaptureDeviceDiscoverySession *captureDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera]
+    mediaType:AVMediaTypeVideo
+    position:AVCaptureDevicePositionBack];
+NSArray *devices = captureDeviceDiscoverySession.devices;
+    
+  //NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
 
   if ([devices count] > 0) {
     if (self.captureDeviceIndex == -1) {

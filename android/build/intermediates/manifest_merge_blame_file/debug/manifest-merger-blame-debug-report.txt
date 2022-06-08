@@ -1,0 +1,24 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="cn.jystudio.bluetooth" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="24" />
+7-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+9-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:4:5-74
+9-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:4:22-71
+10    <uses-permission android:name="android.permission.BLUETOOTH" />
+10-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:5:5-68
+10-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:5:22-65
+11    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+11-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:6:5-80
+11-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:6:22-78
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:7:5-78
+12-->/Users/harrybui/git/AppBanVe/node_modules/tp-react-native-bluetooth-printer/android/src/main/AndroidManifest.xml:7:22-76
+13
+14</manifest>

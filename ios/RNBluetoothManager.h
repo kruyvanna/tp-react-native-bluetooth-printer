@@ -5,8 +5,10 @@
 //  Created by januslo on 2018/9/28.
 //  Copyright © 2018年 Facebook. All rights reserved.
 //
-#import <React/RCTBridgeModule.h>
-#import <React/RCTEventEmitter.h>
+#import "RCTBridgeModule.h"
+#import "RCTEventEmitter.h"
+//#import <React/RCTBridgeModule.h>
+//#import <React/RCTEventEmitter.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @protocol WriteDataToBleDelegate <NSObject>
