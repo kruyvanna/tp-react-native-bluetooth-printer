@@ -26,18 +26,15 @@ Or install via YARN
 yarn add tp-react-native-bluetooth-printer@git+https://github.com/kruyvanna/tp-react-native-bluetooth-printer.git
 ```
 
-### Step2
+### Step 2
 
-Link the plugin to your RN project
+Install pod file
 
-```bash
-react-native link tp-react-native-bluetooth-printer
+```
+cd ios; pod install
 ```
 
-Or you may need to link manually.
-//TODO: manually link guilds.
-
-### Step3
+### Step 3
 
 Refers to your JS files
 
