@@ -13,11 +13,10 @@
 
 - (void) didWriteDataToBle: (BOOL)success
 {NSLog(@"PrintImageBleWriteDelete diWriteDataToBle: %d",success?1:0);
-    NSLog(@"PP Write success:%d",success ? 1:0);
-    NSLog(@"PP _now:%ld",_now);
     if(success){
         if(_now == -1){
              if(_pendingResolve) {
+                 NSLog(@"PP resolve");
                  _pendingResolve(nil);
                  _pendingResolve=nil;
              }
@@ -49,42 +48,18 @@
 -(void) print
 {
     @synchronized (self) {
-     NSInteger sizePerLine = (int)(_width/8);
-    NSLog(@"PP sizePerLine:%ld", sizePerLine);
-   // do{
-//        if(sizePerLine+_now>=[_toPrint length]){
-//            sizePerLine = [_toPrint length] - _now;
-//        }
-       // if(sizePerLine>0){
-          
-        
-        if(sizePerLine+_now>=[_toPrint length]){
-            NSLog(@"PP sizePerLine + _now >= _toPrint length");
-            NSLog(@"PP STOP PRINTING");
-            unsigned char * initPrinter = malloc(5);
-            initPrinter[0]=27;
-            initPrinter[1]=77;
-            initPrinter[2]=0;
-            initPrinter[3]=13;
-            initPrinter[4]=10;
-            [RNBluetoothManager writeValue:[NSData dataWithBytes:initPrinter length:5] withDelegate:self];
-            _now = -1;
-            [NSThread sleepForTimeInterval:0.01f];
-            return;
+        NSInteger sizePerLine = (int)(_width/8);
+       
+        if(_now + sizePerLine >= [_toPrint length]) {
+            sizePerLine = [_toPrint length] - _now;
         }
         
-            NSData *subData = [_toPrint subdataWithRange:NSMakeRange(_now, sizePerLine)];
-            NSLog(@"Write data:%@",subData);
-            [RNBluetoothManager writeValue:subData withDelegate:self];
-        //}
-        NSLog(@"PP _now:%ld",_now);
-        NSLog(@"PP sizePerLine+_now:%ld", sizePerLine+_now);
-        NSLog(@"PP leng:%lu",[_toPrint length]);
+        NSData *subData = [_toPrint subdataWithRange:NSMakeRange(_now, sizePerLine)];
+        [RNBluetoothManager writeValue:subData withDelegate:self];
+                
         _now = _now+sizePerLine;
         [NSThread sleepForTimeInterval:0.01f];
-        
     }
-    //}while(_now<[_toPrint length]);
 }
 
 @end
