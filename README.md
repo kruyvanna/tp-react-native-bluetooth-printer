@@ -10,6 +10,36 @@ Any questions or bug please raise a issue.
 
 #May support Android / IOS
 
+## TypeScript Support
+
+This library includes TypeScript type definitions. TypeScript users can import the types directly:
+
+```typescript
+import { 
+  BluetoothManager, 
+  BluetoothEscposPrinter, 
+  BluetoothTscPrinter,
+  PrintTextOptions,
+  PrintPicOptions,
+  TscPrinterOptions
+} from 'tp-react-native-bluetooth-printer';
+
+// Example with type safety
+const printQRCode = async (
+  content: string, 
+  size: number = 200, 
+  correctionLevel: number = BluetoothEscposPrinter.ERROR_CORRECTION.H, 
+  leftPadding: number = 90
+): Promise<void> => {
+  return await BluetoothEscposPrinter.printQRCode(
+    content,
+    size,
+    correctionLevel,
+    leftPadding
+  );
+};
+```
+
 ## Installation
 
 ### Step 1

@@ -12,10 +12,12 @@
     "ESC",
     "POS",
     "Bluetooth",
-    "Printer"
+    "Printer",
+    "typescript"
   ],
   "license": "MIT",
   "main": "index.js",
+  "types": "index.d.ts",
   "name": "tp-react-native-bluetooth-printer",
   "homepage": "https://github.com/harrybui2804/tp-react-native-bluetooth-printer#readme",
   "repository": {
