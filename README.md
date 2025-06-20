@@ -179,6 +179,20 @@ BluetoothManager.scanDevices().then(
 );
 ```
 
+- stopScanning ==>
+  async function, stop the ongoing device scanning. This will resolve the promise from scanDevices early.
+
+```javascript
+BluetoothManager.stopScanning().then(
+  () => {
+    console.log("Scanning stopped");
+  },
+  (err) => {
+    console.error("Error stopping scan:", err);
+  }
+);
+```
+
 - connect ==>
   async function, connect the specified devices, if not bound, bound dailog promps.
 

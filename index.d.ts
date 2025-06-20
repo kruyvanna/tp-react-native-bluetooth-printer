@@ -12,6 +12,7 @@ declare module 'tp-react-native-bluetooth-printer' {
     enableBluetooth(): Promise<string[]>;
     disableBluetooth(): Promise<void>;
     scanDevices(): Promise<string>;
+    stopScanning(): Promise<void>;
     connect(address: string): Promise<void>;
   }
 

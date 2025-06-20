@@ -208,6 +208,43 @@ public class RNBluetoothManagerModule extends ReactContextBaseJavaModule
     }
 
     @ReactMethod
+    public void stopScanning(final Promise promise) {
+        try {
+            BluetoothAdapter adapter = this.getBluetoothAdapter();
+            
+            // Cancel discovery if running
+            if (adapter != null && adapter.isDiscovering()) {
+                adapter.cancelDiscovery();
+            }
+            
+            // Remove and resolve the scan promise if it exists
+            Promise scanPromise = promiseMap.remove(PROMISE_SCAN);
+            if (scanPromise != null) {
+                // Prepare the result
+                JSONObject result = new JSONObject();
+                try {
+                    result.put("paired", pairedDeivce);
+                    result.put("found", foundDevice);
+                    scanPromise.resolve(result.toString());
+                } catch (Exception e) {
+                    // ignore
+                }
+                
+                // Emit the discovery done event
+                WritableMap params = Arguments.createMap();
+                params.putString("paired", pairedDeivce.toString());
+                params.putString("found", foundDevice.toString());
+                emitRNEvent(EVENT_DEVICE_DISCOVER_DONE, params);
+            }
+            
+            promise.resolve(null);
+        } catch (Exception e) {
+            Log.e(TAG, "Error stopping scan: " + e.getMessage());
+            promise.reject("STOP_SCAN_ERROR", e.getMessage());
+        }
+    }
+
+    @ReactMethod
     public void connect(String address, final Promise promise) {
         try {
              BluetoothAdapter adapter = this.getBluetoothAdapter();

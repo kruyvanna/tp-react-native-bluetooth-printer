@@ -170,7 +170,7 @@ RCT_EXPORT_METHOD(scanDevices:(RCTPromiseResolveBlock)resolve
 }
 
 //stop scan
-RCT_EXPORT_METHOD(stopScan:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(stopScanning:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
     [self callStop];
